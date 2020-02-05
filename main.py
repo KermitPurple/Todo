@@ -53,7 +53,7 @@ def main():
         elif choice == b'3':
             deleteitem(lst)
         elif choice == b'4':
-            quit()
+           break
         updatelist(lst)
 
 if __name__ == "__main__":
