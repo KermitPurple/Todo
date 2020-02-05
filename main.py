@@ -24,8 +24,9 @@ def updatelist(inputlst):
 
 def printlist(inputlst):
     system("cls")
+    colorlst = [Fore.RED, Fore.YELLOW, Fore.GREEN, Fore.BLUE, Fore.CYAN, Fore.MAGENTA]
     for i, item in enumerate(inputlst, start=1):
-        print(str(i) + ") " + Fore.RED + item)
+        print(str(i) + ") " + colorlst[(i-1)%6] + item)
     print()
 
 def additem(inputlst):
@@ -34,7 +35,12 @@ def additem(inputlst):
 
 def deleteitem(inputlst):
     printlist(inputlst)
-    _ = inputlst.pop(int(input("Enter index>"))-1)
+    while 1:
+        try:
+            _ = inputlst.pop(int(input("Enter index>"))-1)
+            break
+        except:
+            print(Fore.RED + "Invalid input")
 
 def menu():
     system("cls")
