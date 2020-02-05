@@ -53,7 +53,7 @@ def menu():
     print(Fore.RED + "1) Print list")
     print(Fore.YELLOW + "2) Add item")
     print(Fore.GREEN + "3) Delete item")
-    print(Fore.BLUE + "4) quit")
+    print(Fore.BLUE + "4) Quit")
     return getch()
 
 def main():
