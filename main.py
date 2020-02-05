@@ -1,6 +1,8 @@
 from msvcrt import getch
 from os import system
 
+listpath= "C:\\Users\\Shane\\Dropbox\\Desktop\\Coding\\python\\todo\\list.txt"
+
 def cleanlist(inputlst):
     lst = []
     for item in inputlst:
@@ -8,13 +10,13 @@ def cleanlist(inputlst):
     return lst
 
 def getlist():
-    with open("list.txt", 'r') as l:
+    with open(listpath, 'r') as l:
         lst = l.readlines()
         lst = cleanlist(lst)
     return lst
 
 def updatelist(inputlst):
-    with open("list.txt", 'w') as l:
+    with open(listpath, 'w') as l:
         for item in inputlst:
             l.write(item + "\n")
 
