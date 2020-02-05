@@ -26,8 +26,7 @@ def printlist(inputlst):
 
 def additem(inputlst):
     printlist(inputlst)
-    item = input("Enter item>")
-    inputlst.append(item)
+    inputlst.append(input("Enter item>"))
 
 def deleteitem(inputlst):
     printlist(inputlst)
