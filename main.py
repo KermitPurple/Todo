@@ -1,3 +1,6 @@
+from msvcrt import getch
+from os import system
+
 def cleanlist(inputlst):
     lst = []
     for item in inputlst:
@@ -16,7 +19,9 @@ def updatelist(inputlst):
             l.write(item + "\n")
 
 def printlist(inputlst):
-    pass
+    for i, item in enumerate(inputlst, start=1):
+        print(str(i) + ") " + item)
+    print()
 
 def additem(inputlst):
     pass
@@ -29,10 +34,21 @@ def menu():
     print("2) Add item")
     print("3) Delete item")
     print("4) quit")
+    return getch()
 
 def main():
-    lst = getlist()
-    updatelist(lst)
+    while 1:
+        lst = getlist()
+        choice = menu()
+        if choice == b'1':
+            printlist(lst)
+        elif choice == b'2':
+            additem(lst)
+        elif choice == b'3':
+            deleteitem(lst)
+        elif choice == b'4':
+            quit()
+        updatelist(lst)
 
 if __name__ == "__main__":
     main()
