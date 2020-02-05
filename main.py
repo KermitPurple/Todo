@@ -19,17 +19,22 @@ def updatelist(inputlst):
             l.write(item + "\n")
 
 def printlist(inputlst):
+    system("cls")
     for i, item in enumerate(inputlst, start=1):
         print(str(i) + ") " + item)
     print()
 
 def additem(inputlst):
-    pass
+    printlist(inputlst)
+    item = input("Enter item>")
+    inputlst.append(item)
 
 def deleteitem(inputlst):
-    pass
+    printlist(inputlst)
+    _ = inputlst.pop(int(input("Enter index>"))-1)
 
 def menu():
+    system("cls")
     print("1) Print list")
     print("2) Add item")
     print("3) Delete item")
@@ -42,6 +47,7 @@ def main():
         choice = menu()
         if choice == b'1':
             printlist(lst)
+            system("pause")
         elif choice == b'2':
             additem(lst)
         elif choice == b'3':
