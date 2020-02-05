@@ -1,5 +1,7 @@
 from msvcrt import getch
 from os import system
+from colorama import init, Fore
+init(autoreset=True)
 
 listpath= "C:\\Users\\Shane\\Dropbox\\Desktop\\Coding\\python\\todo\\list.txt"
 
@@ -23,7 +25,7 @@ def updatelist(inputlst):
 def printlist(inputlst):
     system("cls")
     for i, item in enumerate(inputlst, start=1):
-        print(str(i) + ") " + item)
+        print(str(i) + ") " + Fore.RED + item)
     print()
 
 def additem(inputlst):
@@ -36,10 +38,10 @@ def deleteitem(inputlst):
 
 def menu():
     system("cls")
-    print("1) Print list")
-    print("2) Add item")
-    print("3) Delete item")
-    print("4) quit")
+    print(Fore.RED + "1) Print list")
+    print(Fore.YELLOW + "2) Add item")
+    print(Fore.GREEN + "3) Delete item")
+    print(Fore.BLUE + "4) quit")
     return getch()
 
 def main():
