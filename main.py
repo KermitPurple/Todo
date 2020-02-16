@@ -43,7 +43,9 @@ def deleteitem(inputlst):
     else:
         while 1:
             try:
-                _ = inputlst.pop(int(input("Enter index>"))-1)
+                index = input("Enter index>")
+                if index != "cancel":
+                    _ = inputlst.pop(int(index)-1)
                 break
             except:
                 print(Fore.RED + "Invalid input")
