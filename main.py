@@ -41,21 +41,31 @@ def deleteitem(inputlst):
     if len(inputlst) <= 0:
         system("Pause")
     else:
-        while 1:
-            try:
-                index = input("Enter index>")
-                if index != "cancel":
-                    _ = inputlst.pop(int(index)-1)
-                break
-            except:
-                print(Fore.RED + "Invalid input")
+        index = getindex()
+        if index != -1:
+            _ = inputlst.pop(index)
+
+def rearangelist(inputlst):
+    pass
+
+def getindex():
+    while 1:
+        try:
+            index = input("Enter index>")
+            return int(index)-1
+        except:
+            if index == 'cancel':
+                return -1
+            print(Fore.RED + "Invalid input")
+
 
 def menu():
     system("cls")
     print(Fore.RED + "1) Print list")
     print(Fore.YELLOW + "2) Add item")
     print(Fore.GREEN + "3) Delete item")
-    print(Fore.BLUE + "4) Quit")
+    print(Fore.BLUE + "4) Rearrange list")
+    print(Fore.CYAN + "5) Quit")
     return getch()
 
 def main():
@@ -70,6 +80,8 @@ def main():
         elif choice == b'3':
             deleteitem(lst)
         elif choice == b'4':
+            rearangelist(lst)
+        elif choice == b'5':
            break
         updatelist(lst)
 
