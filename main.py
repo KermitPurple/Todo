@@ -50,7 +50,6 @@ def deleteitem(inputlst):
             except:
                 print(Fore.RED + "Invalid input")
 
-
 def rearangelist(inputlst):
     printlist(inputlst)
     while 1:
