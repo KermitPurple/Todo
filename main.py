@@ -52,11 +52,19 @@ def deleteitem(inputlst):
 
 
 def rearangelist(inputlst):
-    index1 = getindex(" 1st ")
-    if index1 != -1:
-        index2 = getindex(" 2nd ")
-        if index2 != -1:
-            pass
+    printlist(inputlst)
+    while 1:
+        index1 = getindex(" 1st ")
+        if index1 != -1:
+            index2 = getindex(" 2nd ")
+            if index2 != -1:
+                try:
+                    inputlst[index1], inputlst[index2] = inputlst[index2], inputlst[index1]
+                    break
+                except:
+                    print(Fore.RED + "Invalid input")
+            else: break
+        else: break
 
 def getindex(numstr = " "):
     while 1:
