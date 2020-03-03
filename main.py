@@ -41,23 +41,32 @@ def deleteitem(inputlst):
     if len(inputlst) <= 0:
         system("Pause")
     else:
-        index = getindex()
-        if index != -1:
-            _ = inputlst.pop(index)
+        while 1:
+            try: 
+                index = getindex()
+                if index != -1:
+                    _ = inputlst.pop(index)
+                    break
+            except:
+                print(Fore.RED + "Invalid input")
+
 
 def rearangelist(inputlst):
-    pass
+    index1 = getindex(" 1st ")
+    if index1 != -1:
+        index2 = getindex(" 2nd ")
+        if index2 != -1:
+            pass
 
-def getindex():
+def getindex(numstr = " "):
     while 1:
         try:
-            index = input("Enter index>")
+            index = input("Enter"+numstr+"index>")
             return int(index)-1
         except:
             if index == 'cancel':
                 return -1
             print(Fore.RED + "Invalid input")
-
 
 def menu():
     system("cls")
