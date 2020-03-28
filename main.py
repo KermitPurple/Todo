@@ -50,6 +50,12 @@ def deleteitem(inputlst):
             except:
                 print(Fore.RED + "Invalid input")
 
+def edititem(inputlst):
+    printlist(inputlst)
+    index = getindex()
+    if index != -1:
+        inputlst[index] = input("Enter item>")
+
 def rearangelist(inputlst):
     printlist(inputlst)
     while 1:
@@ -80,8 +86,9 @@ def menu():
     print(Fore.RED + "1) Print list")
     print(Fore.YELLOW + "2) Add item")
     print(Fore.GREEN + "3) Delete item")
-    print(Fore.BLUE + "4) Rearrange list")
-    print(Fore.CYAN + "5) Quit")
+    print(Fore.BLUE + "4) Edit item")
+    print(Fore.CYAN + "5) Rearrange list")
+    print(Fore.MAGENTA + "6) Quit")
     return getch()
 
 def main():
@@ -96,8 +103,10 @@ def main():
         elif choice == b'3':
             deleteitem(lst)
         elif choice == b'4':
-            rearangelist(lst)
+            edititem(lst)
         elif choice == b'5':
+            rearangelist(lst)
+        elif choice == b'6':
            break
         updatelist(lst)
 
