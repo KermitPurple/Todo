@@ -91,7 +91,7 @@ def menu():
     print(Fore.MAGENTA + "6) Quit")
     return getch()
 
-def main():
+def run_ui():
     while 1:
         lst = getlist()
         choice = menu()
@@ -109,6 +109,9 @@ def main():
         elif choice == b'6':
            break
         updatelist(lst)
+
+def main():
+    run_ui()
 
 if __name__ == "__main__":
     main()
