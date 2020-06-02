@@ -32,9 +32,12 @@ def printlist(inputlst):
     else:
         print(Fore.RED + "The list is empty")
 
-def additem(inputlst):
+def additem(inputlst, item = None):
     printlist(inputlst)
-    inputlst.append(input("Enter item>"))
+    if item == None:
+        item = input("Enter item> ")
+    inputlst.append(item)
+
 
 def deleteitem(inputlst):
     printlist(inputlst)
@@ -54,7 +57,7 @@ def edititem(inputlst):
     printlist(inputlst)
     index = getindex()
     if index != -1:
-        inputlst[index] = input("Enter item>")
+        inputlst[index] = input("Enter item> ")
 
 def rearangelist(inputlst):
     printlist(inputlst)
@@ -74,7 +77,7 @@ def rearangelist(inputlst):
 def getindex(numstr = " "):
     while 1:
         try:
-            index = input("Enter"+numstr+"index>")
+            index = input("Enter"+numstr+"index> ")
             return int(index)-1
         except:
             if index == 'cancel':
