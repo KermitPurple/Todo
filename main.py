@@ -114,22 +114,18 @@ def run_ui():
         updatelist(lst)
 
 def main():
-    try:
-        _ = argv.pop(0)
-        length = len(argv)
-        if length > 1:
-            raise(Exception("Too many args"))
-    except Exception as e:
-        print("Error: " + str(e)) 
+    _ = argv.pop(0)
+    length = len(argv)
+    if length == 0:
+        run_ui()
+        return
+    arg = " ".join(argv)
+    if arg == "--print" or arg == "-p":
+        printlist(getlist())
     else:
-        if length == 0:
-            run_ui()
-        elif argv[0] == "--print" or argv[0] == "-p":
-            printlist(getlist())
-        else:
-            lst = getlist()
-            additem(lst, argv[0])
-            updatelist(lst)
+        lst = getlist()
+        additem(lst, arg)
+        updatelist(lst)
 
 if __name__ == "__main__":
     main()
