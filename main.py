@@ -1,3 +1,4 @@
+from sys import argv
 from msvcrt import getch
 from os import system
 from colorama import init, Fore
@@ -33,8 +34,8 @@ def printlist(inputlst):
         print(Fore.RED + "The list is empty")
 
 def additem(inputlst, item = None):
-    printlist(inputlst)
     if item == None:
+        printlist(inputlst)
         item = input("Enter item> ")
     inputlst.append(item)
 
@@ -114,7 +115,22 @@ def run_ui():
         updatelist(lst)
 
 def main():
-    run_ui()
+    try:
+        _ = argv.pop(0)
+        length = len(argv)
+        if length > 1:
+            raise(Exception("Too many args"))
+    except Exception as e:
+        print("Error: " + str(e)) 
+    else:
+        if length == 0:
+            run_ui()
+        elif argv[0] == "--print" or argv[0] == "-p":
+            printlist(getlist())
+        else:
+            lst = getlist()
+            additem(lst, argv[0])
+            updatelist(lst)
 
 if __name__ == "__main__":
     main()
