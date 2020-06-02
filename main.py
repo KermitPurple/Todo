@@ -24,7 +24,6 @@ def updatelist(inputlst):
             l.write(item + "\n")
 
 def printlist(inputlst):
-    system("cls")
     if len(inputlst) > 0:
         colorlst = [Fore.RED, Fore.YELLOW, Fore.GREEN, Fore.BLUE, Fore.CYAN, Fore.MAGENTA]
         for i, item in enumerate(inputlst, start=1):
@@ -86,13 +85,13 @@ def getindex(numstr = " "):
             print(Fore.RED + "Invalid input")
 
 def menu():
-    system("cls")
     print(Fore.RED + "1) Print list")
     print(Fore.YELLOW + "2) Add item")
     print(Fore.GREEN + "3) Delete item")
     print(Fore.BLUE + "4) Edit item")
     print(Fore.CYAN + "5) Rearrange list")
     print(Fore.MAGENTA + "6) Quit")
+    print()
     return getch()
 
 def run_ui():
