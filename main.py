@@ -4,7 +4,7 @@ from os import system
 from colorama import init, Fore
 init(autoreset=True)
 
-listpath= "C:\\Users\\Shane\\Dropbox\\Desktop\\Coding\\python\\todo\\list.txt"
+listpath= "C:\\Users\\Shane\\Dropbox\\todo_list.txt"
 
 def cleanlist(inputlst):
     lst = []
